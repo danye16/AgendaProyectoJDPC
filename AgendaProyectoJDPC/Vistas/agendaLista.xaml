@@ -1,101 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-               xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:xct1="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:xct1="http://schemas.microsoft.com/expression/blend/2008"
              x:Class="AgendaProyectoJDPC.Vistas.agendaLista">
 
-    <Grid RowDefinitions="60,*"
-      BackgroundColor="#FSF6F6">
+    <Grid RowDefinitions="60,*" BackgroundColor="#FSF6F6">
         <Label Text="Mi Agendita"
-           HorizontalOptions="Center"
-           VerticalOptions="Center"
-           FontSize="28"
-           FontAttributes="Bold"
-           TextColor="Tomato">
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="28"
+               FontAttributes="Bold"
+               TextColor="Tomato"/>
 
-        </Label>
-
-        <CollectionView BackgroundColor="Brown" Grid.Row="1" ItemsSource="{Binding ListarAgendas}" x:Name="lista1">
-
+        <CollectionView Grid.Row="1" ItemsSource="{Binding ListarAgendas}" x:Name="lista1">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical"
-                          Span="2"
-                          HorizontalItemSpacing="15"
-                          VerticalItemSpacing="10"/>
+                                VerticalItemSpacing="0"/>
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid RowDefinitions="100,*">
-                        <Frame BackgroundColor="Pink" Grid.Row="1" WidthRequest="250"
-                               HorizontalOptions="Center"
+                    <Grid>
+                        <Image Source="https://i.ibb.co/n8kZWF7/flores.jpg" Aspect="Fill" HeightRequest="300" WidthRequest="0" Opacity="0.6"/>
+                        <Frame BackgroundColor="Pink" WidthRequest="300"  
+                               VerticalOptions="Center"
                                CornerRadius="15"
-                               Margin="0,-75,0,-10"
+                               Margin="30,0,30,0"
                                HasShadow="False">
-                            
-
-                            <StackLayout Margin="0,100,0,50" BackgroundColor="{Binding Estado}">
-
-
-                                <Label HorizontalTextAlignment="Center" Text="{Binding Titulo}" CharacterSpacing="1" FontSize="20" Margin="0,15,0,-1" />
-
-                                <Label Text="{Binding Texto}" />
-
-
-
-
-
+                            <StackLayout Margin="0,30,0,20" BackgroundColor="{Binding Estado}">
+                                <Label HorizontalTextAlignment="Center" TextColor="Orange" Text="{Binding Titulo}" CharacterSpacing="1" FontSize="20" Margin="0,15,0,-1" />
+                                <Label  TextColor="Black" Text="{Binding Texto}"/>
                                 <StackLayout Orientation="Horizontal">
-
                                     <Image Source="https://i.ibb.co/2dTVyvJ/elimina.png"       
-                           VerticalOptions="Start"
-                         HeightRequest="30"
-                         HorizontalOptions="CenterAndExpand"
-                                 Margin="10">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer  Command="{Binding Path=BindingContext.EliminarAgendaCommand, Source={x:Reference lista1}}"
-                            CommandParameter="{Binding Id}"/>
-                                    </Image.GestureRecognizers>
-                                </Image>
-                                <Image Source="https://i.ibb.co/GC8BPXQ/editar-1.png"       
-            VerticalOptions="Start"
-               HeightRequest="30"
-               HorizontalOptions="CenterAndExpand"
-               Margin="10">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer  Command="{Binding Path=BindingContext.Editarcommand, Source={x:Reference lista1}}"
-                CommandParameter="{Binding .}"/>
-                                    </Image.GestureRecognizers>
-                                </Image>
+                                           VerticalOptions="Start"
+                                           HeightRequest="30"
+                                           HorizontalOptions="CenterAndExpand"
+                                           Margin="10">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.EliminarAgendaCommand, Source={x:Reference lista1}}"
+                                                                  CommandParameter="{Binding Id}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="https://i.ibb.co/GC8BPXQ/editar-1.png"       
+                                           VerticalOptions="Start"
+                                           HeightRequest="30"
+                                           HorizontalOptions="CenterAndExpand"
+                                           Margin="10">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Editarcommand, Source={x:Reference lista1}}"
+                                                                  CommandParameter="{Binding .}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
                                 </StackLayout>
-
-
                             </StackLayout>
-                            
-
                         </Frame>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-            
-
         </CollectionView>
-        
 
-        
-        
+        <Image Aspect="AspectFit"  Source="https://i.ibb.co/PZqTRj8/boton.png" 
+               HeightRequest="200"
+               WidthRequest="200"
+               VerticalOptions="End"
+               HorizontalOptions="End" />
 
-        <Button Text="+"
-                Grid.Row="1"
-                HeightRequest="100"
-                WidthRequest="100"
-                VerticalOptions="End"
-                HorizontalOptions="End"
-                CornerRadius="50"
-                Margin="15"
-                FontSize="50"
-                FontAttributes="Bold"
-                BackgroundColor="#FFD755"
-                Command="{Binding Iraregistrocommand}"/>
+        <Image Aspect="AspectFit" Grid.Row="1" Source="https://i.ibb.co/HV2vtMx/agenda.jpg" 
+               HeightRequest="150"
+               WidthRequest="100"
+               VerticalOptions="End"
+               HorizontalOptions="End" >
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Iraregistrocommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
     </Grid>
 </ContentPage>
+

@@ -21,6 +21,7 @@ namespace AgendaProyectoJDPC.VistaModelo
         string _condicionA;
         string _condicionB;
         string _condicionC;
+        string _EstadoTarea;
 
 
 
@@ -106,6 +107,11 @@ namespace AgendaProyectoJDPC.VistaModelo
             get { return _Estado; }
             set { SetValue(ref _Estado, value); }
         }
+        public string TxTEstadoTarea
+        {
+            get { return _EstadoTarea; }
+            set { SetValue(ref _EstadoTarea, value); }
+        }
         #endregion
         #region PROCESOS
         public async Task ProcesoAsyncrono()
@@ -120,13 +126,18 @@ namespace AgendaProyectoJDPC.VistaModelo
             {
                 CondicionA = "True";
                 TxTEstado = "Red";
-              
+                TxTEstadoTarea = "Dropeada";
+
+
+
             }
-          else  if (Verde)
+            else  if (Verde)
             { 
             CondicionB = "True";
             TxTEstado = "Green";
-               
+                TxTEstadoTarea = "Completada";
+
+
 
             }
 
@@ -134,7 +145,9 @@ namespace AgendaProyectoJDPC.VistaModelo
             {
                 CondicionC = "True";
                 TxTEstado = "Blue";
-               
+                TxTEstadoTarea = "Pendiente";
+
+
 
             }
 

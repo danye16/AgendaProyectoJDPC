@@ -25,7 +25,7 @@
                 <Entry Placeholder="Ingrese el Titulo"
                 FontAttributes="Bold"
                 TextColor="Brown"
-                PlaceholderColor="White"
+                PlaceholderColor="MediumAquamarine"
                 TextTransform="Lowercase"
                HorizontalOptions="StartAndExpand"
                  Text="{Binding TxtTitulo}"/>
@@ -38,9 +38,11 @@
                 VerticalOptions="Center"
                 FontSize="18"/>
                 <Entry Placeholder="Ingrese su tarea a realizar"
+                       FontSize="Large"
+                       HeightRequest="60"
                 FontAttributes="Bold"
                 TextColor="Brown"
-                PlaceholderColor="White"
+                PlaceholderColor="MediumAquamarine"
                 TextTransform="Lowercase"
                 HorizontalOptions="StartAndExpand"
                 Text="{Binding TxtTarea}"/>
@@ -53,37 +55,42 @@
 
                 <StackLayout Orientation="Horizontal" Margin="10">
                     <RadioButton x:Name="greenRadioButton" GroupName="ColorGroup" IsChecked="{Binding Verde}" />
-                    <Label Text="Proceso" VerticalTextAlignment="Center" />
+                    <Label Text="Completada" VerticalTextAlignment="Center" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Margin="10">
                     <RadioButton x:Name="blueRadioButton" GroupName="ColorGroup" IsChecked="{Binding Amarillo}" />
-                    <Label Text="Pendiente" VerticalTextAlignment="Center" />
+                    <Label Text="En Proceso" VerticalTextAlignment="Center" />
                 </StackLayout>
 
                 <Label Text="Estado" FontSize="28" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     <Label.Triggers>
                         <DataTrigger TargetType="Label" Binding="{Binding Rojo}" Value="True">
                             <Setter Property="TextColor" Value="Red" />
+                            <Setter Property="Text" Value="Dropeada" />
                         </DataTrigger>
                         <DataTrigger TargetType="Label" Binding="{Binding Verde}" Value="True">
                             <Setter Property="TextColor" Value="Green" />
+                            <Setter Property="Text" Value="Completada" />
+
                         </DataTrigger>
                         <DataTrigger TargetType="Label" Binding="{Binding Amarillo}" Value="True">
                             <Setter Property="TextColor" Value="Yellow" />
+                            <Setter Property="Text" Value="En Proceso" />
+
                         </DataTrigger>
                     </Label.Triggers>
                 </Label>
             </StackLayout>
 
-            <Frame  HorizontalOptions="Center">
-                <Image Aspect="AspectFit" Source="https://i.ibb.co/PZqTRj8/boton.png" WidthRequest="80"
-                       Margin="0,0">
+
+            <Image HorizontalOptions="Center" Aspect="AspectFit" Source="https://i.ibb.co/ZHWYb1t/contrato.png" WidthRequest="200" HeightRequest="200"
+                       Margin="0,20">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Insertarcomand}"/>
                     </Image.GestureRecognizers>
                 </Image>
-            </Frame>
+            
 
         </StackLayout>
     </Grid>

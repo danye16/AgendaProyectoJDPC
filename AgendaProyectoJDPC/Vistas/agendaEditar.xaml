@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AgendaProyectoJDPC.Vistas.agendaEditar">
 
-    <Grid RowDefinitions="80,*">
+    <Grid>
+        <!-- Primera capa: Imagen de fondo -->
+        <Image Source="https://i.ibb.co/Fz66XdN/notas.jpg" Aspect="AspectFill"/>
+        <Grid RowDefinitions="80,*">
         <StackLayout BackgroundColor="Black" Orientation="Horizontal" Padding="15">
             <Image Source="https://i.ibb.co/x768VqH/atras.png" WidthRequest="40">
                 <Image.GestureRecognizers>
@@ -14,8 +17,8 @@
         HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
 
-        <StackLayout BackgroundColor="AntiqueWhite" Grid.Row="1" Margin="10">
-            <StackLayout Orientation="Horizontal" BackgroundColor="{Binding parametrosRecibe.Estado}">
+        <StackLayout  Grid.Row="1" Margin="0">
+            <StackLayout WidthRequest="1000" Orientation="Horizontal" BackgroundColor="{Binding parametrosRecibe.Estado}">
                 <Label Text="Titulo: "
           TextColor="Black"
           FontAttributes="Bold"
@@ -39,7 +42,7 @@
                 <Entry Placeholder="Ingrese su tarea a realizar"
           FontAttributes="Bold"
           TextColor="Brown"
-          PlaceholderColor="White"
+          PlaceholderColor="MediumAquamarine"
           TextTransform="Lowercase"
           HorizontalOptions="StartAndExpand"
           Text="{Binding parametrosRecibe.Texto}"/>
@@ -52,12 +55,12 @@
 
                 <StackLayout Orientation="Horizontal" Margin="10">
                     <RadioButton x:Name="greenRadioButton" GroupName="ColorGroup" IsChecked="{Binding Verde}" />
-                    <Label Text="Proceso" VerticalTextAlignment="Center" />
+                    <Label Text="Completada" VerticalTextAlignment="Center" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Margin="10">
                     <RadioButton x:Name="blueRadioButton" GroupName="ColorGroup" IsChecked="{Binding Amarillo}" />
-                    <Label Text="Pendiente" VerticalTextAlignment="Center" />
+                    <Label Text="En Proceso"  VerticalTextAlignment="Center" />
                 </StackLayout>
 
                 <Label Text="{Binding TxtTitulo}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
@@ -68,7 +71,7 @@
                         <DataTrigger TargetType="Label" Binding="{Binding Verde}" Value="True">
                             <Setter Property="TextColor" Value="Green" />
                         </DataTrigger>
-                        <DataTrigger TargetType="Label" Binding="{Binding Azul}" Value="True">
+                        <DataTrigger TargetType="Label" Binding="{Binding Amarillo}" Value="True">
                             <Setter Property="TextColor" Value="Yellow" />
                         </DataTrigger>
                     </Label.Triggers>
@@ -76,14 +79,14 @@
             </StackLayout>
 
             <Grid RowDefinitions="100,*"
-      Margin="0,-30,0,0">
+      Margin="0,-40,0,0">
                 <Frame Grid.Row="1" WidthRequest="250"
            HorizontalOptions="Center"
            CornerRadius="15"
            Margin="0,-35,0,0"
            BackgroundColor="{Binding TxTEstado}">
-                    <StackLayout Margin="0,55,0,0">
-                        <Label Text="{Binding parametrosRecibe.Titulo}"></Label>
+                    <StackLayout Margin="0,10,0,0">
+                        <Label HorizontalTextAlignment="Center" Text="{Binding parametrosRecibe.Titulo}"></Label>
                         <Label Text="{Binding parametrosRecibe.Texto}"></Label>
                     </StackLayout>
                 </Frame>
@@ -91,20 +94,16 @@
 
 
 
-
-
-
-
-
-            <Frame  HorizontalOptions="Fill" Background="Tomato">
-                <Image Aspect="AspectFit" Source="https://i.ibb.co/PZqTRj8/boton.png" WidthRequest="50"
-             Margin="0,0">
+                    <Image Aspect="AspectFit" Source="https://i.ibb.co/ZHWYb1t/contrato.png" WidthRequest="100" HeightRequest="100"
+             >
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ActualizarCommand}"/>
                     </Image.GestureRecognizers>
                 </Image>
-            </Frame>
+            
 
         </StackLayout>
     </Grid>
+    </Grid>
+
 </ContentPage>
