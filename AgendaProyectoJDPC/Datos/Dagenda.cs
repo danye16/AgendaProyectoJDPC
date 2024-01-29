@@ -28,6 +28,7 @@ namespace AgendaProyectoJDPC.Datos
                     Id = Guid.NewGuid(),
                     Titulo = parametros.Titulo,
                     Texto = parametros.Texto,
+                    Estado = parametros.Estado,
                 });
         }
    
@@ -80,7 +81,8 @@ namespace AgendaProyectoJDPC.Datos
                         .PutAsync(new Magenda()
                         {
                             Titulo = parametros.Titulo,
-                            Texto = parametros.Texto
+                            Texto = parametros.Texto,
+                            Estado = parametros.Estado
                         });
                     return true;
                 }

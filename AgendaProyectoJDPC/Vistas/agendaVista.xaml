@@ -45,6 +45,36 @@
                 HorizontalOptions="StartAndExpand"
                 Text="{Binding TxtTarea}"/>
             </StackLayout>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <RadioButton x:Name="redRadioButton" GroupName="ColorGroup" IsChecked="{Binding Rojo}" />
+                    <Label Text="Dropear" VerticalTextAlignment="Center" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <RadioButton x:Name="greenRadioButton" GroupName="ColorGroup" IsChecked="{Binding Verde}" />
+                    <Label Text="Proceso" VerticalTextAlignment="Center" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <RadioButton x:Name="blueRadioButton" GroupName="ColorGroup" IsChecked="{Binding Amarillo}" />
+                    <Label Text="Pendiente" VerticalTextAlignment="Center" />
+                </StackLayout>
+
+                <Label Text="{Binding TxtTitulo}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Rojo}" Value="True">
+                            <Setter Property="TextColor" Value="Red" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Label" Binding="{Binding Verde}" Value="True">
+                            <Setter Property="TextColor" Value="Green" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Label" Binding="{Binding Azul}" Value="True">
+                            <Setter Property="TextColor" Value="Yellow" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </StackLayout>
 
             <Frame  HorizontalOptions="Center"
        Padding="6"

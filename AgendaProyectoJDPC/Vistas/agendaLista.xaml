@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:xct1="http://schemas.microsoft.com/expression/blend/2008"
              x:Class="AgendaProyectoJDPC.Vistas.agendaLista">
 
     <Grid RowDefinitions="60,*"
@@ -33,40 +34,15 @@
                                HasShadow="False">
                             
 
-                            <StackLayout Margin="0,100,0,50">
-                                <SwipeView>
-                                    <Label Text="{Binding Texto}">
+                            <StackLayout Margin="0,100,0,50" BackgroundColor="{Binding Estado}">
 
-                                        <SwipeView.LeftItems>
-                                        <SwipeItem Text="Cancelar"
-                                   IconImageSource="https://i.ibb.co/pyt3vdr/Angular-full-color-logo-svg.png"
-                                   BackgroundColor="#DD2340"/>
-                                    </SwipeView.LeftItems>
-                                    <Grid HeightRequest="60"
-                          WidthRequest="300"
-                          BackgroundColor="LightGray">
-                                        <Label Text="Framework"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               FontAttributes="Bold,Italic"
-                               TextColor="Black"/>
-                                    </Grid>
-                                </SwipeView>
-                                
+
                                 <Label  Text="{Binding Titulo}" CharacterSpacing="1" FontSize="20" Margin="0,-10,0,-1" />
 
-                                
-                                <CheckBox x:Name="myCheckBox" />
-                                <Label Text="{Binding Texto}">
-                                    <Label.Triggers>
-                                        <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference myCheckBox}, Path=IsChecked}" Value="True">
-                                            <Setter Property="TextColor" Value="Red" />
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference myCheckBox}, Path=IsChecked}" Value="False">
-                                            <Setter Property="TextColor" Value="Yellow" />
-                                        </DataTrigger>
-                                    </Label.Triggers>
-                                </Label>
+                                <Label Text="{Binding Texto}" />
+
+
+
 
 
 
@@ -83,13 +59,19 @@
                                 </Image>
 
                             </StackLayout>
+                            
 
                         </Frame>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+            
 
         </CollectionView>
+        
+
+        
+        
 
         <Button Text="+"
                 Grid.Row="1"
