@@ -77,12 +77,18 @@ namespace AgendaProyectoJDPC.VistaModelo
                 Debug.WriteLine($"Error al eliminar la Tarea: {ex.Message}");
             }
         }
+        public async Task EditarAgenda(Magenda parametros)
+        {
+            await Navigation.PushAsync(new agendaEditar(parametros));
+        }
 
         #endregion
         #region COMANDOS
         public ICommand EliminarAgendaCommand => new Command<Guid>(async (idagenda) => await MensajeEliminar(idagenda));
 
         public ICommand Iraregistrocommand => new Command(async () => await Iraregistro());
+        public ICommand Editarcommand => new Command<Magenda>(async (p) => await EditarAgenda(p));
+
 
         #endregion
     }

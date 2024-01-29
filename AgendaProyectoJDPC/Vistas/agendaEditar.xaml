@@ -1,49 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AgendaProyectoJDPC.Vistas.agendaVista"
-             NavigationPage.HasNavigationBar="False">
+             x:Class="AgendaProyectoJDPC.Vistas.agendaEditar">
 
     <Grid RowDefinitions="80,*">
         <StackLayout BackgroundColor="Black" Orientation="Horizontal" Padding="15">
             <Image Source="https://i.ibb.co/x768VqH/atras.png" WidthRequest="40">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding Volvercommand}"/>
-            </Image.GestureRecognizers>
-        </Image>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Volvercommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
             <Image Source="https://i.ibb.co/BrVphp1/agenda.png" Aspect="Fill"
-           HorizontalOptions="CenterAndExpand"/>
+        HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
 
         <StackLayout Grid.Row="1" Margin="10">
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" BackgroundColor="{Binding TxTEstado}">
                 <Label Text="Titulo: "
-                TextColor="Black"
-                FontAttributes="Bold"
-                VerticalOptions="Center"
-                FontSize="18"/>
+          TextColor="Black"
+          FontAttributes="Bold"
+          VerticalOptions="Center"
+          FontSize="18"/>
                 <Entry Placeholder="Ingrese el Titulo"
-                FontAttributes="Bold"
-                TextColor="#ffeb72"
-                PlaceholderColor="White"
-                TextTransform="Lowercase"
-               HorizontalOptions="StartAndExpand"
-                 Text="{Binding TxtTitulo}"/>
-             </StackLayout>
+          FontAttributes="Bold"
+          TextColor="#ffeb72"
+          PlaceholderColor="White"
+          TextTransform="Lowercase"
+         HorizontalOptions="StartAndExpand"
+           Text="{Binding parametrosRecibe.Titulo}"/>
+            </StackLayout>
 
             <StackLayout Orientation="Horizontal">
                 <Label Text="Tarea"
-                TextColor="Black"
-                FontAttributes="Bold"
-                VerticalOptions="Center"
-                FontSize="18"/>
+          TextColor="Black"
+          FontAttributes="Bold"
+          VerticalOptions="Center"
+          FontSize="18"/>
                 <Entry Placeholder="Ingrese su tarea a realizar"
-                FontAttributes="Bold"
-                TextColor="#ffeb72"
-                PlaceholderColor="White"
-                TextTransform="Lowercase"
-                HorizontalOptions="StartAndExpand"
-                Text="{Binding TxtTarea}"/>
+          FontAttributes="Bold"
+          TextColor="#ffeb72"
+          PlaceholderColor="White"
+          TextTransform="Lowercase"
+          HorizontalOptions="StartAndExpand"
+          Text="{Binding parametrosRecibe.Texto}"/>
             </StackLayout>
             <StackLayout>
                 <StackLayout Orientation="Horizontal" Margin="10">
@@ -69,31 +68,52 @@
                         <DataTrigger TargetType="Label" Binding="{Binding Verde}" Value="True">
                             <Setter Property="TextColor" Value="Green" />
                         </DataTrigger>
-                        <DataTrigger TargetType="Label" Binding="{Binding Amarillo}" Value="True">
+                        <DataTrigger TargetType="Label" Binding="{Binding Azul}" Value="True">
                             <Setter Property="TextColor" Value="Yellow" />
                         </DataTrigger>
                     </Label.Triggers>
                 </Label>
             </StackLayout>
 
+            <Grid RowDefinitions="100,*"
+      Margin="0,-20,0,0">
+                <Frame Grid.Row="1" WidthRequest="250"
+           HorizontalOptions="Center"
+           CornerRadius="15"
+           Margin="0,-38,0,0"
+           BackgroundColor="{Binding TxTEstado}">
+                    <StackLayout Margin="0,55,0,0">
+                        <Label Text="{Binding parametrosRecibe.Titulo}"></Label>
+                        <Label Text="{Binding parametrosRecibe.Texto}"></Label>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+
+
+
+
+
+
+
+
             <Frame  HorizontalOptions="Center"
-       Padding="6"
-       Margin="0,400,0,0"
-       CornerRadius="15"
-       HasShadow="False"
-       BackgroundColor="#FEC100">
+ Padding="6"
+ Margin="0,0,0,0"
+ CornerRadius="15"
+ HasShadow="False"
+ BackgroundColor="#FEC100">
                 <Button
-        Text="+"
-        HorizontalOptions="Center"
-        BackgroundColor="#FEC100"
-        BorderColor="#FFE488"
-        BorderWidth="6"
-        CornerRadius="15"
-        FontAttributes="Bold"
-        FontSize="25"
-        WidthRequest="60"
-        HeightRequest="60"
-        Command="{Binding Insertarcomand}"/>
+  Text="+"
+  HorizontalOptions="Center"
+  BackgroundColor="#FEC100"
+  BorderColor="#FFE488"
+  BorderWidth="6"
+  CornerRadius="15"
+  FontAttributes="Bold"
+  FontSize="25"
+  WidthRequest="60"
+  HeightRequest="60"
+  Command="{Binding ActualizarCommand}"/>
             </Frame>
 
         </StackLayout>

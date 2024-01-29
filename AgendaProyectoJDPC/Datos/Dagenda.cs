@@ -80,6 +80,7 @@ namespace AgendaProyectoJDPC.Datos
                         .Child(agendaAEditar.Key)
                         .PutAsync(new Magenda()
                         {
+                            Id = parametros.Id,
                             Titulo = parametros.Titulo,
                             Texto = parametros.Texto,
                             Estado = parametros.Estado

@@ -57,6 +57,16 @@
                             CommandParameter="{Binding Id}"/>
                                     </Image.GestureRecognizers>
                                 </Image>
+                                <Image Source="https://i.ibb.co/GC8BPXQ/editar-1.png"       
+            VerticalOptions="Start"
+               HeightRequest="30"
+               HorizontalOptions="CenterAndExpand"
+               Margin="10">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding Path=BindingContext.Editarcommand, Source={x:Reference lista1}}"
+                CommandParameter="{Binding .}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
 
                             </StackLayout>
                             
