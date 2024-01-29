@@ -11,12 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace AgendaProyectoJDPC.Vistas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class agendaVista : ContentPage
+    public partial class agendaLista : ContentPage
     {
-        public agendaVista()
+        public agendaLista()
         {
             InitializeComponent();
-            BindingContext = new VMregistroagenda(Navigation);
+            BindingContext = new VMListaagenda(Navigation);
         }
     }
 }

@@ -1,12 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AgendaProyectoJDPC.Vistas.agendaVista">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+             x:Class="AgendaProyectoJDPC.Vistas.agendaVista"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="80,*">
+        <StackLayout BackgroundColor="Black" Orientation="Horizontal" Padding="15">
+            <Image Source="https://i.ibb.co/x768VqH/atras.png" WidthRequest="40">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Volvercommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+            <Image Source="https://i.ibb.co/BrVphp1/agenda.png" Aspect="Fill"
+           HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
-    </ContentPage.Content>
+
+        <StackLayout Grid.Row="1" Margin="10">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Titulo: "
+                TextColor="Black"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                FontSize="18"/>
+                <Entry Placeholder="Ingrese el Titulo"
+                FontAttributes="Bold"
+                TextColor="#ffeb72"
+                PlaceholderColor="White"
+                TextTransform="Lowercase"
+               HorizontalOptions="StartAndExpand"
+                 Text="{Binding TxtTitulo}"/>
+             </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Tarea"
+                TextColor="Black"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                FontSize="18"/>
+                <Entry Placeholder="Ingrese su tarea a realizar"
+                FontAttributes="Bold"
+                TextColor="#ffeb72"
+                PlaceholderColor="White"
+                TextTransform="Lowercase"
+                HorizontalOptions="StartAndExpand"
+                Text="{Binding TxtTarea}"/>
+            </StackLayout>
+
+            <Frame  HorizontalOptions="Center"
+       Padding="6"
+       Margin="0,400,0,0"
+       CornerRadius="15"
+       HasShadow="False"
+       BackgroundColor="#FEC100">
+                <Button
+        Text="+"
+        HorizontalOptions="Center"
+        BackgroundColor="#FEC100"
+        BorderColor="#FFE488"
+        BorderWidth="6"
+        CornerRadius="15"
+        FontAttributes="Bold"
+        FontSize="25"
+        WidthRequest="60"
+        HeightRequest="60"
+        Command="{Binding Insertarcomand}"/>
+            </Frame>
+
+        </StackLayout>
+    </Grid>
 </ContentPage>

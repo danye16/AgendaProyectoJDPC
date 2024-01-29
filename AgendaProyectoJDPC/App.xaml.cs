@@ -1,6 +1,8 @@
-﻿using System;
+﻿using AgendaProyectoJDPC.Vistas;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using AgendaProyectoJDPC.Modelo;
 
 namespace AgendaProyectoJDPC
 {
@@ -10,7 +12,7 @@ namespace AgendaProyectoJDPC
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new agendaLista());
         }
 
         protected override void OnStart()
