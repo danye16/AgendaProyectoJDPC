@@ -15,7 +15,7 @@
            HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
 
-        <StackLayout Grid.Row="1" Margin="10">
+        <StackLayout BackgroundColor="AntiqueWhite" Grid.Row="1" Margin="10">
             <StackLayout Orientation="Horizontal">
                 <Label Text="Titulo: "
                 TextColor="Black"
@@ -24,7 +24,7 @@
                 FontSize="18"/>
                 <Entry Placeholder="Ingrese el Titulo"
                 FontAttributes="Bold"
-                TextColor="#ffeb72"
+                TextColor="Brown"
                 PlaceholderColor="White"
                 TextTransform="Lowercase"
                HorizontalOptions="StartAndExpand"
@@ -39,7 +39,7 @@
                 FontSize="18"/>
                 <Entry Placeholder="Ingrese su tarea a realizar"
                 FontAttributes="Bold"
-                TextColor="#ffeb72"
+                TextColor="Brown"
                 PlaceholderColor="White"
                 TextTransform="Lowercase"
                 HorizontalOptions="StartAndExpand"
@@ -61,7 +61,7 @@
                     <Label Text="Pendiente" VerticalTextAlignment="Center" />
                 </StackLayout>
 
-                <Label Text="{Binding TxtTitulo}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label Text="Estado" FontSize="28" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     <Label.Triggers>
                         <DataTrigger TargetType="Label" Binding="{Binding Rojo}" Value="True">
                             <Setter Property="TextColor" Value="Red" />
@@ -76,24 +76,13 @@
                 </Label>
             </StackLayout>
 
-            <Frame  HorizontalOptions="Center"
-       Padding="6"
-       Margin="0,400,0,0"
-       CornerRadius="15"
-       HasShadow="False"
-       BackgroundColor="#FEC100">
-                <Button
-        Text="+"
-        HorizontalOptions="Center"
-        BackgroundColor="#FEC100"
-        BorderColor="#FFE488"
-        BorderWidth="6"
-        CornerRadius="15"
-        FontAttributes="Bold"
-        FontSize="25"
-        WidthRequest="60"
-        HeightRequest="60"
-        Command="{Binding Insertarcomand}"/>
+            <Frame  HorizontalOptions="Center">
+                <Image Aspect="AspectFit" Source="https://i.ibb.co/PZqTRj8/boton.png" WidthRequest="80"
+                       Margin="0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Insertarcomand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
             </Frame>
 
         </StackLayout>

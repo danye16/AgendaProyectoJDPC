@@ -14,8 +14,8 @@
         HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
 
-        <StackLayout Grid.Row="1" Margin="10">
-            <StackLayout Orientation="Horizontal" BackgroundColor="{Binding TxTEstado}">
+        <StackLayout BackgroundColor="AntiqueWhite" Grid.Row="1" Margin="10">
+            <StackLayout Orientation="Horizontal" BackgroundColor="{Binding parametrosRecibe.Estado}">
                 <Label Text="Titulo: "
           TextColor="Black"
           FontAttributes="Bold"
@@ -23,22 +23,22 @@
           FontSize="18"/>
                 <Entry Placeholder="Ingrese el Titulo"
           FontAttributes="Bold"
-          TextColor="#ffeb72"
+          TextColor="Brown"
           PlaceholderColor="White"
           TextTransform="Lowercase"
          HorizontalOptions="StartAndExpand"
            Text="{Binding parametrosRecibe.Titulo}"/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Tarea"
+            <StackLayout Orientation="Vertical">
+                <Label  Text="Tarea"
           TextColor="Black"
           FontAttributes="Bold"
           VerticalOptions="Center"
           FontSize="18"/>
                 <Entry Placeholder="Ingrese su tarea a realizar"
           FontAttributes="Bold"
-          TextColor="#ffeb72"
+          TextColor="Brown"
           PlaceholderColor="White"
           TextTransform="Lowercase"
           HorizontalOptions="StartAndExpand"
@@ -76,11 +76,11 @@
             </StackLayout>
 
             <Grid RowDefinitions="100,*"
-      Margin="0,-20,0,0">
+      Margin="0,-30,0,0">
                 <Frame Grid.Row="1" WidthRequest="250"
            HorizontalOptions="Center"
            CornerRadius="15"
-           Margin="0,-38,0,0"
+           Margin="0,-35,0,0"
            BackgroundColor="{Binding TxTEstado}">
                     <StackLayout Margin="0,55,0,0">
                         <Label Text="{Binding parametrosRecibe.Titulo}"></Label>
@@ -96,24 +96,13 @@
 
 
 
-            <Frame  HorizontalOptions="Center"
- Padding="6"
- Margin="0,0,0,0"
- CornerRadius="15"
- HasShadow="False"
- BackgroundColor="#FEC100">
-                <Button
-  Text="+"
-  HorizontalOptions="Center"
-  BackgroundColor="#FEC100"
-  BorderColor="#FFE488"
-  BorderWidth="6"
-  CornerRadius="15"
-  FontAttributes="Bold"
-  FontSize="25"
-  WidthRequest="60"
-  HeightRequest="60"
-  Command="{Binding ActualizarCommand}"/>
+            <Frame  HorizontalOptions="Fill" Background="Tomato">
+                <Image Aspect="AspectFit" Source="https://i.ibb.co/PZqTRj8/boton.png" WidthRequest="50"
+             Margin="0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ActualizarCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
             </Frame>
 
         </StackLayout>
