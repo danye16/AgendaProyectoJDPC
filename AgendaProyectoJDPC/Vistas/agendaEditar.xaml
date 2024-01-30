@@ -33,20 +33,25 @@
            Text="{Binding parametrosRecibe.Titulo}"/>
             </StackLayout>
 
-            <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Vertical">
                 <Label  Text="Tarea"
           TextColor="Black"
           FontAttributes="Bold"
           VerticalOptions="Center"
           FontSize="18"/>
-                <Entry Placeholder="Ingrese su tarea a realizar"
+                </StackLayout>
+
+                <ScrollView Grid.Row="1" Margin="10">
+
+                        <Editor Placeholder="Ingrese su tarea a realizar"
+                                FontSize="Large"
           FontAttributes="Bold"
           TextColor="Brown"
           PlaceholderColor="MediumAquamarine"
           TextTransform="Lowercase"
           HorizontalOptions="StartAndExpand"
           Text="{Binding parametrosRecibe.Texto}"/>
-            </StackLayout>
+                    </ScrollView>
             <StackLayout>
                 <StackLayout Orientation="Horizontal" Margin="10">
                     <RadioButton x:Name="redRadioButton" GroupName="ColorGroup" IsChecked="{Binding Rojo}" />
@@ -92,8 +97,6 @@
                 </Frame>
             </Grid>
 
-
-
                     <Image Aspect="AspectFit" Source="https://i.ibb.co/ZHWYb1t/contrato.png" WidthRequest="100" HeightRequest="100"
              >
                     <Image.GestureRecognizers>
@@ -103,6 +106,7 @@
             
 
         </StackLayout>
+            
     </Grid>
     </Grid>
 

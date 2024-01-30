@@ -31,13 +31,17 @@
                  Text="{Binding TxtTitulo}"/>
              </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Tarea"
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Tarea"
                 TextColor="Black"
                 FontAttributes="Bold"
                 VerticalOptions="Center"
                 FontSize="18"/>
-                <Entry Placeholder="Ingrese su tarea a realizar"
+                                        </StackLayout>
+
+                <ScrollView Grid.Row="1" Margin="10">
+
+                    <Editor Placeholder="Ingrese su tarea a realizar"
                        FontSize="Large"
                        HeightRequest="60"
                 FontAttributes="Bold"
@@ -46,7 +50,8 @@
                 TextTransform="Lowercase"
                 HorizontalOptions="StartAndExpand"
                 Text="{Binding TxtTarea}"/>
-            </StackLayout>
+            </ScrollView>
+
             <StackLayout>
                 <StackLayout Orientation="Horizontal" Margin="10">
                     <RadioButton x:Name="redRadioButton" GroupName="ColorGroup" IsChecked="{Binding Rojo}" />

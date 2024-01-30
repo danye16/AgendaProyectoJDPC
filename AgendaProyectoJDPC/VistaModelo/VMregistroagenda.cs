@@ -144,7 +144,7 @@ namespace AgendaProyectoJDPC.VistaModelo
             else   if (Amarillo)
             {
                 CondicionC = "True";
-                TxTEstado = "Blue";
+                TxTEstado = "Yellow";
                 TxTEstadoTarea = "Pendiente";
 
 

@@ -29,7 +29,7 @@
                                Margin="30,0,30,0"
                                HasShadow="False">
                             <StackLayout Margin="0,30,0,20" BackgroundColor="{Binding Estado}">
-                                <Label HorizontalTextAlignment="Center" TextColor="Orange" Text="{Binding Titulo}" CharacterSpacing="1" FontSize="20" Margin="0,15,0,-1" />
+                                <Label HorizontalTextAlignment="Center" TextColor="Orange" Text="{Binding Titulo}" CharacterSpacing="1" FontSize="22" Margin="0,15,0,-1" />
                                 <Label  TextColor="Black" Text="{Binding Texto}"/>
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="https://i.ibb.co/2dTVyvJ/elimina.png"       
